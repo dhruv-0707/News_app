@@ -6,13 +6,27 @@ function reload(){
     window.location.reload();
 }
 
-async function fetchNews(query){
-    const res=await fetch(`${url}${query}&apiKey=${API_KEY}`);
-    const data=await res.json();
-    // console.log(data);
-    bindData(data.articles);
-    // data ke andar articles aur usme array hota hain
+async function fetchNews(query) {
+    try {
+        const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+        
+        if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+        }
+        
+        const data = await res.json();
+        
+        if (!data.articles || !Array.isArray(data.articles)) {
+            throw new Error("Invalid data format received");
+        }
+        
+        bindData(data.articles);
+    } catch (error) {
+        console.error("Error fetching news:", error);
+        document.getElementById("cards-container").innerHTML = "<p>Failed to load news. Please try again later.</p>";
+    }
 }
+
 
 function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
