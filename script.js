@@ -11,11 +11,7 @@ function reload(){
 
 async function fetchNews(query) {
     try {
-        const res = await fetch(`${url}${query}&apiKey=${API_KEY}`,{
-            headers: {
-                'Origin': 'https://dhruv-0707.github.io'
-            }
-        });
+        const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
         
         if (!res.ok) {
             throw new Error(`HTTP error! status: ${res.status}`);
