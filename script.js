@@ -1,5 +1,5 @@
 const API_KEY="67d968520e1c4f71b74890daa763cdfe";
-const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+const proxyUrl = "https://corsproxy.io/?";
 const url = `${proxyUrl}https://newsapi.org/v2/everything?q=`;
 
 
