@@ -1,5 +1,9 @@
 const API_KEY="67d968520e1c4f71b74890daa763cdfe";
-const url = "https://newsapi.org/v2/everything?q=";
+// const url = "https://newsapi.org/v2/everything?q=";
+
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+const url = `${proxyUrl}https://newsapi.org/v2/everything?q=`;
+
 window.addEventListener("load", () => fetchNews("India"));
 // window load ho toh fetchNews function call ho aur wo india lki news fetch karle
 function reload(){
