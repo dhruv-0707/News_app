@@ -1,22 +1,7 @@
 const API_KEY="67d968520e1c4f71b74890daa763cdfe";
 const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-const url = `https://newsapi.org/v2/everything?q=`;
-(function() {
-    var cors_api_host = 'cors-anywhere.herokuapp.com';
-    var cors_api_url = 'https://' + cors_api_host + '/';
-    var slice = [].slice;
-    var origin = window.location.protocol + '//' + window.location.host;
-    var open = XMLHttpRequest.prototype.open;
-    XMLHttpRequest.prototype.open = function() {
-        var args = slice.call(arguments);
-        var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
-        if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
-            targetOrigin[1] !== cors_api_host) {
-            args[1] = cors_api_url + args[1];
-        }
-        return open.apply(this, args);
-    };
-})();
+const url = `${proxyUrl}https://newsapi.org/v2/everything?q=`;
+
 
 window.addEventListener("load", () => fetchNews("India"));
 // window load ho toh fetchNews function call ho aur wo india lki news fetch karle
