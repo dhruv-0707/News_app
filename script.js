@@ -1,5 +1,5 @@
 const API_KEY="67d968520e1c4f71b74890daa763cdfe";
-const proxyUrl = "https://thingproxy.freeboard.io/fetch/";
+const proxyUrl = "https://cors-anywhere.herokuapp.com/";
 const url = `${proxyUrl}https://newsapi.org/v2/everything?q=`;
 
 
@@ -13,8 +13,7 @@ async function fetchNews(query) {
     try {
         const res = await fetch(`${url}${query}&apiKey=${API_KEY}`,{
             headers: {
-                'Origin': 'https://dhruv-0707.github.io',
-                'X-Requested-With': 'XMLHttpRequest'
+                'Origin': 'https://dhruv-0707.github.io'
             }
         });
         
